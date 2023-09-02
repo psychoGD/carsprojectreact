@@ -11,10 +11,10 @@ export default function Navbar(props) {
             <Link style={{textDecoration:'none',color:'#4DAA80'}} to="/favorites">Favorites</Link>
             <form style={{marginRight:'5%'}} onSubmit={(e)=>e.preventDefault()} className="form-inline">
                 <div className="input-group">
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" id='input' />
+                    <input onChange={(e)=>props.setInput(e.target.value)} className="form-control" type="search" placeholder="Search" aria-label="Search" id='input' />
                     <div className="input-group-append">
                         <button onClick={()=>filterBooks(props.location==='/favorites' ? props.favorites:props.books,
-                        document.getElementById('input').value,props.location==='/favorites' ? props.setFavorites:props.setBooks)} className="btn btn-outline-success" type="submit">Search</button>
+                        document.getElementById('input').value)} className="btn btn-outline-success" type="submit">Search</button>
                     </div>
                 </div>
             </form>

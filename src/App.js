@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BookList from './Components/BookList';
 import Favorites from './Components/Favorites';
+import { filterBooks } from './Utils/NavbarUtil';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
   const location  = useRef('');
+  const [inputedText,setInputedText] = useState('');
 
   useEffect(() => {
     // Verileri alma isteğini burada yapacağız
@@ -20,7 +22,7 @@ function App() {
       .then((data) => {
         // İlk 100 veriyi almak için slice kullanabilirsiniz
         const limitedData = data.slice(0, 100);
-        
+        console.log(limitedData)
         setBooks(limitedData);
         setIsLoading(false);
       })
@@ -43,11 +45,17 @@ function App() {
     <div>
       <Router >
 
-        <Navbar location={location} books={books} favorites={favorites} setFavorites={setFavorites} setBooks={setBooks} ></Navbar>
+        <Navbar location={location} books={books} favorites={favorites} setInput={setInputedText} ></Navbar>
         <hr />
         <Routes>
-          <Route exact path='/' element={<BookList books={books} favorites={favorites} setFavorites={setFavorites}></BookList>}></Route>
-          <Route exact path='/favorites' element={<Favorites favorites={favorites} setFavorites={setFavorites}></Favorites>}></Route>
+          {inputedText===''?(
+            <Route exact path='/' element={<BookList books={books} favorites={favorites} setFavorites={setFavorites}></BookList>}></Route>
+            ):(<Route exact path='/' element={<BookList books={filterBooks(books,inputedText)} favorites={favorites} setFavorites={setFavorites}></BookList>}></Route>)}
+          {inputedText===''?(
+ <Route exact path='/favorites' element={<Favorites favorites={favorites} setFavorites={setFavorites}></Favorites>}></Route>
+):(<Route exact path='/favorites' element={<Favorites favorites={filterBooks(favorites,inputedText)} setFavorites={setFavorites}></Favorites>}></Route>)}
+          
+         
         </Routes>
         
       </Router>

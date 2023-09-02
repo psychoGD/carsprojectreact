@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './../App.css';
 import { toggleFavorite } from '../Utils/FavoriteUtils';
 import { Books, CurrentSetter, SetBooks, SetSetter } from '../Utils/CurrentList';
+import './../Button86.css'
 export default function BookList(props) {
   const [book,setBook] = useState([])
   SetBooks(props.books)
@@ -30,8 +31,12 @@ export default function BookList(props) {
                     </p>
 
                   </div>
+
+                  <div className='comments'>
+                  <button className='button-86' onClick={props.openModal}>Add Comment</button>
+                  </div>
                   {/* inline style yazma sebebim */}
-                  <button onClick={() => toggleFavorite(book,props.favorites,props.setFavorites)} className="btn btn-success">
+                  <button className="button-86"  onClick={() => toggleFavorite(book,props.favorites,props.setFavorites)}>
                     {props.favorites.some((favoriteBook) => favoriteBook.Title === book.Title)
                       ? `Favorite Delete` 
                       : 'Favorite Add'}

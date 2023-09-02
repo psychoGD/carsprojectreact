@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { toggleFavorite } from '../Utils/FavoriteUtils'
 import { Books, CurrentSetter, SetBooks, SetSetter } from '../Utils/CurrentList'
-
+import './../Button86.css'
 export default function Favorites(props) {
     //favorites favorite edilmis booklar
     //setFavorite
@@ -31,7 +31,10 @@ export default function Favorites(props) {
                     </p>
 
                   </div>
-                  <button onClick={() => toggleFavorite(book,props.favorites,props.setFavorites)} className="btn btn-primary">
+                  <div className='comments'>
+                    <button onClick={props.openModal}>Add Comment</button>
+                  </div>
+                  <button onClick={() => toggleFavorite(book,props.favorites,props.setFavorites)} className="button-86">
                   Favorite Delete
                   </button>
                 </div>

@@ -87,6 +87,7 @@ Book stuff
 
 .cover img {
   width: 100%;
+  transition: .3s ease-in-out;
 }
 
 .book p {
@@ -133,7 +134,7 @@ display change
 /*book height smaller, cover opacity, move text onto cover and star too
 animate it */
 #list-th:target .book {
-  height: 100px;
+  height: 140px;
   width: 250px;
   padding: 10px;
   margin: 25px auto 25px auto;
@@ -163,3 +164,91 @@ star animation
 zoom on click
 ***********************************/
 
+
+
+
+
+.book:hover .cover{
+  height: 10%;
+  transition: 1s;
+}
+.container .book {
+  position: relative; /* .book container'ının pozisyonunu relative yapın */
+}
+
+.container .book .cover {
+  transition: height 1s; /* Cover boyutu değiştiğinde geçiş efekti uygulayın */
+}
+
+.container .book> .button-86 {
+  position: absolute; /* Butonun pozisyonunu absolute yapın */
+  bottom: 10px; /* Alt kenardan 10 piksel mesafede olsun */
+  left: 50%; /* Sol kenardan ortaya yerleştirin */
+  transform: translateX(-50%); /* Yatayda ortala */
+  z-index: 1; /* Diğer içeriklerin üzerine çıkmasını sağlayın */
+}
+
+.container .book .comments {
+  display: none; /* Açıklamaları varsayılan olarak gizle */
+  transition: height 1s; /* Açıklama boyutu değiştiğinde geçiş efekti uygulayın */
+}
+
+.container .book:hover .comments {
+  display: block; /* Hover edildiğinde açıklamaları görünür yap */
+  height: 30%; /* Açıklamanın yüksekliğini otomatik ayarlayarak içeriği sığdırın */
+  opacity: 1; /* Açıklamanın tamamen görünür olmasını sağlayın */
+}
+
+
+/* Modal stilleri */
+.modal {
+  
+  display: block; /* Modal görünür olduğunda göstermek için */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(219, 219, 219, 0.5); /* Modal dışındaki arka planı hafifçe karartma */
+}
+
+.modal-content-2 {
+  width: 50%;
+  background-color: white;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  padding: 20px;
+  border-radius: 5px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+
+#modal-input-2{
+  /* style={{width:'50%',border:'0 0 0 2px'}} */
+  width: 30%;
+  border-width: 0 0 2px 0;
+  margin-bottom: 3%;
+  margin: auto;
+}
+
+.modal h2{
+  width: 40%;
+  margin: auto;
+  margin-bottom: 2%;
+}
+
+.modal button{
+  width: 30%;
+  margin: auto;
+}

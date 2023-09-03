@@ -65,3 +65,8 @@
     transition: 0s;
     transform: translate(0, 5%);
   }
+
+  .comments .button-86{
+    height: 10px;
+    width: 80px;
+  }

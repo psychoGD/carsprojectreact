@@ -3,6 +3,12 @@ import './../App.css';
 import { toggleFavorite } from '../Utils/FavoriteUtils';
 import { Books, CurrentSetter, SetBooks, SetSetter } from '../Utils/CurrentList';
 import './../Button86.css'
+import { Link } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
+  
 export default function BookList(props) {
   const [book,setBook] = useState([])
   SetBooks(props.books)
@@ -33,7 +39,9 @@ export default function BookList(props) {
                   </div>
 
                   <div className='comments'>
-                  <button className='button-86' onClick={props.openModal}>Add Comment</button>
+                  <button className='button-86' onClick={()=>props.openModal(book.Id)}>Add Comment</button>
+                  <Link to={`/fullview/${book.Id}`}>Comments</Link>
+
                   </div>
                   {/* inline style yazma sebebim */}
                   <button className="button-86"  onClick={() => toggleFavorite(book,props.favorites,props.setFavorites)}>

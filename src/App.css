@@ -240,15 +240,76 @@ zoom on click
   border-width: 0 0 2px 0;
   margin-bottom: 3%;
   margin: auto;
+  display: inline-block;
+  margin-bottom: 2%;
 }
 
 .modal h2{
-  width: 40%;
-  margin: auto;
   margin-bottom: 2%;
+  text-align: center;
 }
 
 .modal button{
   width: 30%;
   margin: auto;
 }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.left-set {
+  float: left;
+  overflow: hidden;
+}
+
+.left-set img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+}
+
+.right-set {
+  float: right;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+
+.name, .subname {
+  font-weight: bold;
+}
+.name {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.subname {
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+.description p{
+  font-size: 0.9rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.fullBookCard{
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+/* .imgContainer{
+  width: 50%;
+  height: 100%;
+}
+.desContainer{
+  width: 50%;
+  height: 100%;
+} */
